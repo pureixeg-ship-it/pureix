@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Soap – Handmade with Love</title>
+
+  <!-- Google Fonts: Playfair Display (display) + Lato (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+
+  <!--
+    ╔══════════════════════════════════════════════╗
+    ║  EmailJS SDK — Required for order emails     ║
+    ║  See script.js for where to add your keys    ║
+    ╚══════════════════════════════════════════════╝
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">
+        <span class="logo-leaf">✿</span> Natural Soap
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#order" class="btn-nav">Order Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="close-nav" id="closeNav" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="#home" class="mob-link">Home</a></li>
+      <li><a href="#products" class="mob-link">Products</a></li>
+      <li><a href="#about" class="mob-link">About</a></li>
+      <li><a href="#contact" class="mob-link">Contact</a></li>
+      <li><a href="#order" class="mob-link">Order Now</a></li>
+    </ul>
+  </div>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content fade-up">
+      <p class="hero-tagline">Pure · Natural · Handcrafted</p>
+      <h1>Soap Made with<br /><em>Love &amp; Nature</em></h1>
+      <p class="hero-sub">
+        Each bar is crafted by hand using the finest natural botanicals,
+        essential oils, and skin-nourishing butters — free from harsh
+        chemicals, full of care.
+      </p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Shop Now</a>
+        <a href="#about" class="btn-ghost">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap fade-in-right">
+      <!-- SVG Soap Illustration -->
+      <svg class="soap-hero-svg" viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Plate / dish -->
+        <ellipse cx="210" cy="310" rx="155" ry="28" fill="#d4c5a9" opacity="0.5" />
+        <!-- Main soap bar -->
+        <rect x="90" y="160" width="240" height="140" rx="28" fill="#e8d5c0" />
+        <rect x="95" y="165" width="230" height="130" rx="24" fill="#f0e4d0" />
+        <!-- Texture lines on soap -->
+        <line x1="120" y1="200" x2="300" y2="200" stroke="#d9c4a8" stroke-width="1.5" stroke-dasharray="4,6" />
+        <line x1="120" y1="220" x2="300" y2="220" stroke="#d9c4a8" stroke-width="1.5" stroke-dasharray="4,6" />
+        <line x1="120" y1="240" x2="300" y2="240" stroke="#d9c4a8" stroke-width="1.5" stroke-dasharray="4,6" />
+        <!-- Leaf stamp on soap -->
+        <ellipse cx="210" cy="230" rx="30" ry="14" fill="#a8c5a0" opacity="0.55" transform="rotate(-20 210 230)" />
+        <line x1="210" y1="216" x2="210" y2="244" stroke="#7a9e72" stroke-width="1.5" opacity="0.6"
+          transform="rotate(-20 210 230)" />
+        <!-- Bubbles -->
+        <circle cx="155" cy="130" r="18" fill="white" opacity="0.6" />
+        <circle cx="270" cy="120" r="12" fill="white" opacity="0.55" />
+        <circle cx="310" cy="150" r="8" fill="white" opacity="0.5" />
+        <circle cx="115" cy="155" r="10" fill="white" opacity="0.5" />
+        <circle cx="200" cy="105" r="22" fill="white" opacity="0.5" />
+        <!-- Botanical sprigs -->
+        <g opacity="0.75">
+          <line x1="60" y1="240" x2="90" y2="195" stroke="#7a9e72" stroke-width="2" />
+          <ellipse cx="75" cy="215" rx="10" ry="5" fill="#a8c5a0" transform="rotate(-45 75 215)" />
+          <ellipse cx="88" cy="200" rx="10" ry="5" fill="#a8c5a0" transform="rotate(-30 88 200)" />
+        </g>
+        <g opacity="0.75">
+          <line x1="360" y1="230" x2="330" y2="185" stroke="#7a9e72" stroke-width="2" />
+          <ellipse cx="345" cy="205" rx="10" ry="5" fill="#c5b5d5" transform="rotate(45 345 205)" />
+          <ellipse cx="332" cy="190" rx="10" ry="5" fill="#c5b5d5" transform="rotate(30 332 190)" />
+        </g>
+        <!-- Small flowers -->
+        <g transform="translate(170,80)" opacity="0.7">
+          <circle cx="0" cy="0" r="5" fill="#f4c2c2" />
+          <circle cx="0" cy="-9" r="4" fill="#f4c2c2" />
+          <circle cx="8" cy="-4" r="4" fill="#f4c2c2" />
+          <circle cx="5" cy="6" r="4" fill="#f4c2c2" />
+          <circle cx="-5" cy="6" r="4" fill="#f4c2c2" />
+          <circle cx="-8" cy="-4" r="4" fill="#f4c2c2" />
+          <circle cx="0" cy="0" r="4" fill="#fffbe6" />
+        </g>
+        <g transform="translate(280,75)" opacity="0.65">
+          <circle cx="0" cy="0" r="4" fill="#c5b5d5" />
+          <circle cx="0" cy="-8" r="3.5" fill="#c5b5d5" />
+          <circle cx="7" cy="-3" r="3.5" fill="#c5b5d5" />
+          <circle cx="4" cy="5" r="3.5" fill="#c5b5d5" />
+          <circle cx="-4" cy="5" r="3.5" fill="#c5b5d5" />
+          <circle cx="-7" cy="-3" r="3.5" fill="#c5b5d5" />
+          <circle cx="0" cy="0" r="3" fill="#fffbe6" />
+        </g>
+      </svg>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES STRIP ===== -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item fade-up">
+          <div class="feature-icon">🌿</div>
+          <h4>100% Natural</h4>
+          <p>No parabens, sulfates, or synthetic fragrances</p>
+        </div>
+        <div class="feature-item fade-up" style="animation-delay:.1s">
+          <div class="feature-icon">🤲</div>
+          <h4>Handcrafted</h4>
+          <p>Made in small batches with personal care</p>
+        </div>
+        <div class="feature-item fade-up" style="animation-delay:.2s">
+          <div class="feature-icon">🐰</div>
+          <h4>Cruelty-Free</h4>
+          <p>Never tested on animals, ever</p>
+        </div>
+        <div class="feature-item fade-up" style="animation-delay:.3s">
+          <div class="feature-icon">♻️</div>
+          <h4>Eco Packaging</h4>
+          <p>Wrapped in recycled kraft &amp; twine</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="section products-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-label">Our Collection</p>
+        <h2>Handmade Soap Bars</h2>
+        <p class="section-sub">Each bar is cold-processed, cured for 4 weeks, and wrapped with care.</p>
+      </div>
+      <div class="products-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card fade-up">
+          <div class="product-image-wrap">
+            <img src="https://i.postimg.cc/3NrFt3jm/Whats-App-Image-2026-04-23-at-3-06-12-PM.jpg"/>
+            <div class="product-badge">Bestseller</div>
+          </div>
+          <div class="product-info">
+            <h3>Rose Petal &amp; Shea Butter</h3>
+            <p class="product-desc">A luxuriously creamy bar with dried rose petals, rich shea butter, and a delicate
+              floral scent. Perfect for dry, sensitive skin.</p>
+            <div class="product-footer">
+              <span class="product-price">$12.99</span>
+              <button class="btn-order" onclick="addToCart('https://i.postimg.cc/3NrFt3jm/Whats-App-Image-2026-04-23-at-3-06-12-PM.jpg','Rose Petal & Shea Butter', 250)">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card fade-up" style="animation-delay:.12s">
+          <div class="product-image-wrap">
+            <img src="https://i.postimg.cc/tTnQ1TjD/Whats-App-Image-2026-04-23-at-3-06-36-PM.jpg"/>
+          </div>
+          <div class="product-info">
+            <h3>Mint &amp; Tea Tree Purify</h3>
+            <p class="product-desc">A refreshing, clarifying bar with peppermint essential oil and tea tree extract.
+              Deep-cleanses pores and leaves skin feeling invigorated.</p>
+            <div class="product-footer">
+              <span class="product-price">$11.99</span>
+              <button class="btn-order" onclick="addToCart('https://i.postimg.cc/tTnQ1TjD/Whats-App-Image-2026-04-23-at-3-06-36-PM.jpg','Mint & Tea Tree Purify', 300)">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card fade-up" style="animation-delay:.24s">
+          <div class="product-image-wrap">
+            <img class="product-img" src="https://i.postimg.cc/5tRjd6pc/Chat-GPT-Image-Apr-23-2026-04-15-31-PM.png"/>
+          </div>
+          <div class="product-info">
+            <h3>Oatmeal &amp; Honey Glow</h3>
+            <p class="product-desc">Gently exfoliating colloidal oatmeal paired with raw honey and warm vanilla. Softens
+              and nourishes even the most sensitive skin types.</p>
+            <div class="product-footer">
+              <span class="product-price">$13.49</span>
+              <button class="btn-order" onclick="addToCart('https://i.postimg.cc/5tRjd6pc/Chat-GPT-Image-Apr-23-2026-04-15-31-PM.png', 'Oatmeal & Honey Glow', 500)">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card fade-up" style="animation-delay:.36s">
+          <div class="product-image-wrap">
+            <img class="product-img" src="https://i.postimg.cc/VvR8wh1r/lavender-dream.png"/>
+            <div class="product-badge new-badge">New</div>
+          </div>
+          <div class="product-info">
+            <h3>Lavender Dream Bar</h3>
+            <p class="product-desc">Soothing lavender essential oil with calming chamomile and light coconut oil base.
+              The perfect wind-down bath bar for a restful night.</p>
+            <div class="product-footer">
+              <span class="product-price">$12.49</span>
+              <button class="btn-order" onclick="addToCart('https://i.postimg.cc/VvR8wh1r/lavender-dream.png','Lavender Dream Bar', 450)">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /products-grid -->
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section about-section">
+    <div class="container about-grid">
+      <div class="about-image-col fade-in-left">
+        <div class="about-img-frame">
+          <svg viewBox="0 0 380 420" xmlns="http://www.w3.org/2000/svg" class="about-svg">
+            <!-- Background -->
+            <rect width="380" height="420" rx="24" fill="#f0e8dc" />
+            <!-- Wooden surface -->
+            <rect x="0" y="280" width="380" height="140" rx="0" fill="#d4b896" opacity="0.6" />
+            <rect x="0" y="280" width="380" height="3" fill="#c4a886" opacity="0.8" />
+            <!-- Multiple soap bars stacked -->
+            <rect x="100" y="200" width="180" height="100" rx="20" fill="#dbb878" />
+            <rect x="106" y="206" width="168" height="88" rx="16" fill="#e8c888" />
+            <rect x="90" y="170" width="180" height="100" rx="20" fill="#d4a0a0" />
+            <rect x="96" y="176" width="168" height="88" rx="16" fill="#e8b8b8" />
+            <rect x="110" y="140" width="160" height="95" rx="20" fill="#96bb8e" />
+            <rect x="116" y="146" width="148" height="83" rx="16" fill="#aad0a2" />
+            <!-- Bubbles above -->
+            <circle cx="160" cy="110" r="18" fill="white" opacity="0.55" />
+            <circle cx="210" cy="95" r="13" fill="white" opacity="0.5" />
+            <circle cx="255" cy="112" r="9" fill="white" opacity="0.45" />
+            <circle cx="130" cy="125" r="10" fill="white" opacity="0.45" />
+            <!-- Botanicals scattered -->
+            <g opacity="0.8">
+              <line x1="310" y1="220" x2="340" y2="180" stroke="#7a9e72" stroke-width="2" />
+              <ellipse cx="320" cy="205" rx="11" ry="5" fill="#a8c5a0" transform="rotate(-50 320 205)" />
+              <ellipse cx="335" cy="188" rx="11" ry="5" fill="#a8c5a0" transform="rotate(-35 335 188)" />
+            </g>
+            <g opacity="0.8">
+              <line x1="50" y1="200" x2="35" y2="165" stroke="#7a9e72" stroke-width="2" />
+              <ellipse cx="44" cy="188" rx="10" ry="5" fill="#c5b5d5" transform="rotate(40 44 188)" />
+              <ellipse cx="37" cy="172" rx="10" ry="5" fill="#c5b5d5" transform="rotate(25 37 172)" />
+            </g>
+            <!-- Flower -->
+            <g transform="translate(320,120)" opacity="0.75">
+              <circle cx="0" cy="0" r="5" fill="#f4c2c2" />
+              <circle cx="0" cy="-8" r="4.5" fill="#f4c2c2" />
+              <circle cx="7" cy="-3" r="4.5" fill="#f4c2c2" />
+              <circle cx="5" cy="6" r="4.5" fill="#f4c2c2" />
+              <circle cx="-5" cy="6" r="4.5" fill="#f4c2c2" />
+              <circle cx="-7" cy="-3" r="4.5" fill="#f4c2c2" />
+              <circle cx="0" cy="0" r="3.5" fill="#fffbe6" />
+            </g>
+            <!-- Text on surface -->
+            <text x="190" y="375" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="16"
+              fill="#8a6840" opacity="0.7">Natural Soap Studio</text>
+          </svg>
+          <div class="about-badge">Since 2019</div>
+        </div>
+      </div>
+      <div class="about-text-col fade-in-right">
+        <p class="section-label">Our Story</p>
+        <h2>Born from a love of<br /><em>nature and skincare</em></h2>
+        <p>
+          Natural Soap started in a small kitchen with a big dream — to create soaps that are
+          as good for your skin as they are for the planet. Every bar is a little piece of that dream,
+          made with botanicals we source ethically and oils we choose for their skin-loving properties.
+        </p>
+        <p>
+          We believe that beauty shouldn't come at a cost to our health or our environment. That's why
+          every ingredient we use is 100% natural, every formula is tested on willing friends and family
+          (never animals), and every package is made to biodegrade.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num">2,400+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">18</span>
+            <span class="stat-label">Unique Recipes</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Natural Ingredients</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORDER FORM ===== -->
+  <section id="order" class="section order-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-label">Place an Order</p>
+        <h2>Order Your Soaps</h2>
+        <p class="section-sub">Fill in the form below and we'll confirm your order within 24 hours.</p>
+      </div>
+      <div id="order-form" class="order-form-wrap fade-up">
+        <form id="orderForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Full Name <span>*</span></label>
+              <input type="text" id="f-name" name="from_name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email Address <span>*</span></label>
+              <input type="email" id="f-email" name="from_email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-phone">Phone Number <span>*</span></label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+1 234 567 8900" required />
+            </div>
+            <div class="form-group">
+              <label for="f-address">Address</label>
+              <input type="text" id="f-address" name="address" placeholder="Address" />
+            </div>
+            <!-- <div class="form-group">
+              <label for="f-product">Select Product <span>*</span></label>
+              <select id="f-product" name="product" required>
+                <option value="" disabled selected>Choose a soap…</option>
+                <option>Rose Petal &amp; Shea Butter — $12.99</option>
+                <option>Mint &amp; Tea Tree Purify — $11.99</option>
+                <option>Oatmeal &amp; Honey Glow — $13.49</option>
+                <option>Lavender Dream Bar — $12.49</option>
+              </select>
+            </div> -->
+          </div>
+          <div class="form-row-1">
+            <!-- <div class="form-group">
+              <label for="f-qty">Quantity <span>*</span></label>
+              <input type="number" id="f-qty" name="quantity" min="1" max="50" value="1" required />
+            </div> -->
+            <div class="form-group">
+              <label for="f-notes">Notes / Special Requests</label>
+              <input type="text" id="f-notes" name="notes" placeholder="Gift wrapping, allergies, etc." />
+            </div>
+
+          </div>
+
+          <div id="order-container" class="hidden">
+            <div class="form-group">
+              <label>order details</label>
+
+              <div>
+                <div id="cart"></div>
+
+                <div class="form-row">
+                  <label>TOTAL: </label>
+                  <span id="total">000.000</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <a id="empty-cart" href="#products" class="empty-cart-cta">
+            <div class="form-message empty-cart">
+              <span class="msg-icon">🛒</span>
+              <div class="msg-content">
+                <strong>Oops! Your cart is empty</strong>
+                <p>Discover our handmade soaps and find your perfect match 🌿</p>
+                <span class="cta-btn">Shop Now →</span>
+              </div>
+            </div>
+          </a>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span id="btn-text">Send Order</span>
+            <span id="btn-spinner" class="spinner" style="display:none">⟳</span>
+          </button>
+        </form>
+        <!-- Success message -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Order Received!</h3>
+          <p>Thank you! We'll email you a confirmation within 24 hours.</p>
+          <button class="btn-ghost" onclick="resetForm()">Place Another Order</button>
+        </div>
+        <!-- Error message -->
+        <div class="form-error" id="formError">
+          <p>⚠️ Something went wrong. Please try again or email us directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-label">Get in Touch</p>
+        <h2>We'd Love to Hear from You</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card fade-up">
+          <div class="contact-icon">📧</div>
+          <h4>Email Us</h4>
+          <a href="mailto:example@email.com">example@email.com</a>
+        </div>
+        <div class="contact-card fade-up" style="animation-delay:.1s">
+          <div class="contact-icon">📱</div>
+          <h4>WhatsApp</h4>
+          <a href="#">+1 (555) 123-4567</a>
+        </div>
+        <div class="contact-card fade-up" style="animation-delay:.2s">
+          <div class="contact-icon">📍</div>
+          <h4>Location</h4>
+          <p>Ships worldwide from our studio</p>
+        </div>
+        <div class="contact-card fade-up" style="animation-delay:.3s">
+          <div class="contact-icon">🕐</div>
+          <h4>Response Time</h4>
+          <p>Within 24 hours on weekdays</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="logo">✿ Natural Soap</a>
+        <p>Handcrafted with love, nature, and a whole lot of care.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="footer-copy">© 2024 Natural Soap. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
