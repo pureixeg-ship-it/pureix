@@ -1,3 +1,23 @@
+let products = [
+  {
+    img: "https://i.postimg.cc/Dfch8gmg/Chat-GPT-Image-Apr-23-2026-08-09-59-PM.png",
+    title: "Glycerin Soap",
+    description: "Hydrate and glow with our gentle glycerin soap, formulated with natural ingredients to cleanse your skin without dryness. It locks in moisture, keeping your skin soft, smooth, and beautifully radiant. Perfect for everyday use and suitable for all skin types.",
+    bestSeller: true,
+    new: true,
+    price: 180,
+  },
+  {
+    img: "https://i.postimg.cc/25Pk7Sfw/Chat-GPT-Image-Apr-23-2026-07-04-24-PM.png",
+    title: "Glycerin Soap with Charcoal & Oatmeal",
+    description: "Purify and refresh your skin with this powerful blend of activated charcoal and natural oatmeal. Designed to deeply cleanse pores, control excess oil, and gently exfoliate without irritation—leaving your skin smooth, clear, and perfectly balanced. Ideal for oily and combination skin.",
+    bestSeller: false,
+    new: true,
+    price: 200,
+  },
+]
+
+
 /* =============================================
    NATURAL SOAP — script.js
    =============================================
@@ -32,9 +52,9 @@
 
    Then replace the placeholder values below:
    ==================================================== */
-const EMAILJS_SERVICE_ID  = "service_vpdrgei";   // e.g. "service_abc123"
+const EMAILJS_SERVICE_ID = "service_vpdrgei";   // e.g. "service_abc123"
 const EMAILJS_TEMPLATE_ID = "template_eim0zam";  // e.g. "template_xyz789"
-const EMAILJS_PUBLIC_KEY  = "xdf-rjS7s99egx3Ar";   // e.g. "aBcDeFgHiJkLmNoP"
+const EMAILJS_PUBLIC_KEY = "xdf-rjS7s99egx3Ar";   // e.g. "aBcDeFgHiJkLmNoP"
 
 // Your receiving email — matches the {{to_email}} variable in your template
 const STORE_EMAIL = "shaimaassad6@email.com";
@@ -65,11 +85,11 @@ window.addEventListener("scroll", () => {
 /* ====================================================
    3. MOBILE NAVIGATION
    ==================================================== */
-const hamburger   = document.getElementById("hamburger");
-const mobileNav   = document.getElementById("mobileNav");
-const closeNav    = document.getElementById("closeNav");
-const navOverlay  = document.getElementById("navOverlay");
-const mobLinks    = document.querySelectorAll(".mob-link");
+const hamburger = document.getElementById("hamburger");
+const mobileNav = document.getElementById("mobileNav");
+const closeNav = document.getElementById("closeNav");
+const navOverlay = document.getElementById("navOverlay");
+const mobLinks = document.querySelectorAll(".mob-link");
 
 function openMobileNav() {
   mobileNav.classList.add("open");
@@ -83,8 +103,8 @@ function closeMobileNav() {
   document.body.style.overflow = "";
 }
 
-hamburger.addEventListener("click",  openMobileNav);
-closeNav.addEventListener("click",   closeMobileNav);
+hamburger.addEventListener("click", openMobileNav);
+closeNav.addEventListener("click", closeMobileNav);
 navOverlay.addEventListener("click", closeMobileNav);
 
 // Close when a link is tapped
@@ -124,7 +144,7 @@ animatedEls.forEach(el => observer.observe(el));
        flex wrapper around hero-content + hero-image)
    ==================================================== */
 (function setupHeroLayout() {
-  const hero    = document.querySelector(".hero");
+  const hero = document.querySelector(".hero");
   const content = document.querySelector(".hero-content");
   const imgWrap = document.querySelector(".hero-image-wrap");
 
@@ -152,12 +172,12 @@ animatedEls.forEach(el => observer.observe(el));
   function adjustHero() {
     if (window.innerWidth <= 1024) {
       wrap.style.flexDirection = "column";
-      wrap.style.textAlign     = "center";
-      content.style.maxWidth   = "100%";
+      wrap.style.textAlign = "center";
+      content.style.maxWidth = "100%";
     } else {
       wrap.style.flexDirection = "row";
-      wrap.style.textAlign     = "left";
-      content.style.maxWidth   = "580px";
+      wrap.style.textAlign = "left";
+      content.style.maxWidth = "580px";
     }
   }
 
@@ -169,12 +189,12 @@ animatedEls.forEach(el => observer.observe(el));
 /* ====================================================
    6. ORDER FORM — validation + EmailJS submit
    ==================================================== */
-const orderForm  = document.getElementById("orderForm");
-const submitBtn  = document.getElementById("submitBtn");
-const btnText    = document.getElementById("btn-text");
+const orderForm = document.getElementById("orderForm");
+const submitBtn = document.getElementById("submitBtn");
+const btnText = document.getElementById("btn-text");
 const btnSpinner = document.getElementById("btn-spinner");
 const formSuccess = document.getElementById("formSuccess");
-const formError   = document.getElementById("formError");
+const formError = document.getElementById("formError");
 
 // Simple field validation
 function validateForm() {
@@ -234,9 +254,9 @@ orderForm.addEventListener("submit", async (e) => {
 
   // Check if EmailJS keys have been configured
   if (
-    EMAILJS_SERVICE_ID  === "YOUR_SERVICE_ID"  ||
+    EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
     EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID" ||
-    EMAILJS_PUBLIC_KEY  === "YOUR_PUBLIC_KEY"
+    EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY"
   ) {
     showDemoSuccess();
     return;
@@ -247,18 +267,18 @@ orderForm.addEventListener("submit", async (e) => {
 
   // Build template parameters for EmailJS
   const templateParams = {
-    from_name:  document.getElementById("f-name").value.trim(),
+    from_name: document.getElementById("f-name").value.trim(),
     email: document.getElementById("f-email").value.trim(),
-    phone:      document.getElementById("f-phone").value.trim(),
+    phone: document.getElementById("f-phone").value.trim(),
     address: document.getElementById("f-address").value.trim(),
     cost: {
       shipping: 60,
       tax: 0,
       total: document.getElementById("total").textContent,
     },
-    products:   cart,
-    notes:      document.getElementById("f-notes").value.trim() || "",
-    to_email:   STORE_EMAIL
+    products: cart,
+    notes: document.getElementById("f-notes").value.trim() || "",
+    to_email: STORE_EMAIL
   };
 
   console.log(templateParams)
@@ -280,7 +300,7 @@ orderForm.addEventListener("submit", async (e) => {
 
 function setLoading(state) {
   submitBtn.disabled = state;
-  btnText.style.display    = state ? "none" : "inline";
+  btnText.style.display = state ? "none" : "inline";
   btnSpinner.style.display = state ? "inline" : "none";
 }
 
@@ -296,7 +316,7 @@ function showDemoSuccess() {
   // Add a note to the success screen
   const note = document.createElement("p");
   note.style.cssText = "font-size:.8rem;color:#a09080;margin-top:-10px;margin-bottom:14px;";
-  note.textContent   = "(Demo mode — EmailJS keys not configured yet. Order was NOT emailed.)";
+  note.textContent = "(Demo mode — EmailJS keys not configured yet. Order was NOT emailed.)";
   const successIcon = formSuccess.querySelector("h3");
   successIcon.insertAdjacentElement("afterend", note);
 }
@@ -343,10 +363,10 @@ function prefillOrder(productName) {
     }
     // Highlight the select briefly
     select.style.borderColor = "#7a9e72";
-    select.style.boxShadow   = "0 0 0 3px rgba(122,158,114,.2)";
+    select.style.boxShadow = "0 0 0 3px rgba(122,158,114,.2)";
     setTimeout(() => {
       select.style.borderColor = "";
-      select.style.boxShadow   = "";
+      select.style.boxShadow = "";
     }, 1800);
   }, 750);
 }
@@ -358,7 +378,7 @@ function resetForm() {
   orderForm.style.display = "";
   formSuccess.classList.remove("visible");
   formError.classList.remove("visible");
-  
+
 
   // Remove any injected demo note
   const demoNote = formSuccess.querySelector("p[style]");
@@ -391,69 +411,99 @@ const activeStyle = document.createElement("style");
 activeStyle.textContent = `.nav-links a.active { color: var(--sage) !important; }`;
 document.head.appendChild(activeStyle);
 
+function renderProducts() {
 
+  const productsContainer = document.getElementById("products-Container");
+  productsContainer.innerHTML = "";
+
+  products.forEach((product, index) => {
+    productsContainer.innerHTML += `
+          <!-- Product ${index} -->
+          <div class="product-card">
+            <div class="product-image-wrap">
+              <img class="product-img" src="${product.img}"/>
+              ${product.bestSeller ? '<div class="product-badge">Bestseller</div>' : ''}
+              ${product.new ? '<div class="product-badge new-badge">New</div>' : ''}
+              <div class="product-badge">Bestseller</div>
+            </div>
+            <div class="product-info">
+              <h3>${product.title}</h3>
+              <p class="product-desc">${product.description}</p>
+              <div class="product-footer">
+                <span class="product-price">${product.price} EGP</span>
+                <button class="btn-order" onclick="addToCart(${product.img},'${product.title}', ${product.price})">Order Now</button>
+              </div>
+            </div>
+          </div>
+        `;
+  });
+}
+
+renderProducts();
+
+// -------------------------------------------------------------------------------------------------------------------------------------
 
 let cart = [];
 
-function resetCart(){
-    cart = [];
-    renderCart()
-} 
+function resetCart() {
+  cart = [];
+  renderCart()
+}
 
 function addToCart(img, name, price) {
-    // Scroll to order form
-    document.getElementById("order-form").scrollIntoView({ behavior: "smooth" });
+  // Scroll to order form
+  document.getElementById("order-form").scrollIntoView({ behavior: "smooth" });
 
-    let item = cart.find(p => p.name === name);
+  let item = cart.find(p => p.name === name);
 
-    if (item) {
-        item.qty += 1;
-    } else {
-        cart.push({ img, name, price, qty: 1 });
-    }
+  if (item) {
+    item.qty += 1;
+  } else {
+    cart.push({ img, name, price, qty: 1 });
+  }
 
-    saveCart();
-    renderCart();
+  saveCart();
+  renderCart();
 }
 
 function removeItem(name) {
-    cart = cart.filter(item => item.name !== name);
-    saveCart();
-    renderCart();
+  cart = cart.filter(item => item.name !== name);
+  saveCart();
+  renderCart();
 }
 
 function changeQty(name, qty) {
-    let item = cart.find(p => p.name === name);
-    if (item) {
-        item.qty = parseInt(qty);
-    }
-    saveCart();
-    renderCart();
+  let item = cart.find(p => p.name === name);
+  if (item) {
+    item.qty = parseInt(qty);
+  }
+  saveCart();
+  renderCart();
 }
 
 function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function renderCart() {
-    const cartDiv = document.getElementById("cart");
-    const orderContainer = document.getElementById("order-container");
-    const emptyCartContainer = document.getElementById("empty-cart");
+  const cartDiv = document.getElementById("cart");
+  const orderContainer = document.getElementById("order-container");
+  const emptyCartContainer = document.getElementById("empty-cart");
 
-    console.log(cart.length)
-   
-    orderContainer.classList.toggle("hidden", cart.length === 0);
-    emptyCartContainer.classList.toggle("hidden", cart.length !== 0);
-    
+  console.log(cart.length)
 
-    cartDiv.innerHTML = "";
+  orderContainer.classList.toggle("hidden", cart.length === 0);
+  emptyCartContainer.classList.toggle("hidden", cart.length !== 0);
 
-    let total = 0;
 
-    cart.forEach(item => {
-        total += item.price * item.qty;
+  cartDiv.innerHTML = "";
 
-        cartDiv.innerHTML += `
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.qty;
+
+    cartDiv.innerHTML += `
             <div class="cart-item">
                 <div class="form-group">
                     <div class="form-row-4">
@@ -466,9 +516,9 @@ function renderCart() {
                 </div>
             </div>
         `;
-    });
+  });
 
-    document.getElementById("total").innerText = total;
+  document.getElementById("total").innerText = total;
 }
 
 
