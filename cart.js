@@ -44,8 +44,6 @@ function renderCart() {
     const cartDiv = document.getElementById("cart");
     const orderContainer = document.getElementById("order-container");
     const emptyCartContainer = document.getElementById("empty-cart");
-
-    console.log(cart.length)
    
     orderContainer.classList.toggle("hidden", cart.length === 0);
     emptyCartContainer.classList.toggle("hidden", cart.length !== 0);

@@ -1,6 +1,11 @@
+const shipping = 60;
+const tax = 0;
+
+let cart = [];
+
 let products = [
   {
-    img: "https://i.postimg.cc/Dfch8gmg/Chat-GPT-Image-Apr-23-2026-08-09-59-PM.png",
+    img: "./images/glycerin-soap.png",
     title: "Glycerin Soap",
     description: "Hydrate and glow with our gentle glycerin soap, formulated with natural ingredients to cleanse your skin without dryness. It locks in moisture, keeping your skin soft, smooth, and beautifully radiant. Perfect for everyday use and suitable for all skin types.",
     bestSeller: true,
@@ -8,7 +13,7 @@ let products = [
     price: 180,
   },
   {
-    img: "https://i.postimg.cc/25Pk7Sfw/Chat-GPT-Image-Apr-23-2026-07-04-24-PM.png",
+    img: "./images/glycerin-soap-with-charcoal-oatmeal.png",
     title: "Glycerin Soap with Charcoal & Oatmeal",
     description: "Purify and refresh your skin with this powerful blend of activated charcoal and natural oatmeal. Designed to deeply cleanse pores, control excess oil, and gently exfoliate without irritation—leaving your skin smooth, clear, and perfectly balanced. Ideal for oily and combination skin.",
     bestSeller: false,
@@ -274,14 +279,12 @@ orderForm.addEventListener("submit", async (e) => {
     cost: {
       shipping: 60,
       tax: 0,
-      total: document.getElementById("total").textContent,
+      total: document.getElementById("total").textContent + shipping + tax,
     },
     products: cart,
     notes: document.getElementById("f-notes").value.trim() || "",
     to_email: STORE_EMAIL
   };
-
-  console.log(templateParams)
 
   try {
     await emailjs.send(
@@ -292,7 +295,6 @@ orderForm.addEventListener("submit", async (e) => {
     setLoading(false);
     showSuccess();
   } catch (err) {
-    console.error("EmailJS error:", err);
     setLoading(false);
     showError();
   }
@@ -373,8 +375,8 @@ function prefillOrder(productName) {
 
 /* Reset form after success */
 function resetForm() {
-  // orderForm.reset();
-  // resetCart();
+  orderForm.reset();
+  resetCart();
   orderForm.style.display = "";
   formSuccess.classList.remove("visible");
   formError.classList.remove("visible");
@@ -411,39 +413,8 @@ const activeStyle = document.createElement("style");
 activeStyle.textContent = `.nav-links a.active { color: var(--sage) !important; }`;
 document.head.appendChild(activeStyle);
 
-function renderProducts() {
-
-  const productsContainer = document.getElementById("products-Container");
-  productsContainer.innerHTML = "";
-
-  products.forEach((product, index) => {
-    productsContainer.innerHTML += `
-          <!-- Product ${index} -->
-          <div class="product-card">
-            <div class="product-image-wrap">
-              <img class="product-img" src="${product.img}"/>
-              ${product.bestSeller ? '<div class="product-badge">Bestseller</div>' : ''}
-              ${product.new ? '<div class="product-badge new-badge">New</div>' : ''}
-              <div class="product-badge">Bestseller</div>
-            </div>
-            <div class="product-info">
-              <h3>${product.title}</h3>
-              <p class="product-desc">${product.description}</p>
-              <div class="product-footer">
-                <span class="product-price">${product.price} EGP</span>
-                <button class="btn-order" onclick="addToCart(${product.img},'${product.title}', ${product.price})">Order Now</button>
-              </div>
-            </div>
-          </div>
-        `;
-  });
-}
-
-renderProducts();
 
 // -------------------------------------------------------------------------------------------------------------------------------------
-
-let cart = [];
 
 function resetCart() {
   cart = [];
@@ -490,15 +461,13 @@ function renderCart() {
   const orderContainer = document.getElementById("order-container");
   const emptyCartContainer = document.getElementById("empty-cart");
 
-  console.log(cart.length)
-
   orderContainer.classList.toggle("hidden", cart.length === 0);
   emptyCartContainer.classList.toggle("hidden", cart.length !== 0);
 
 
   cartDiv.innerHTML = "";
 
-  let total = 0;
+  let total = shipping + tax;
 
   cart.forEach(item => {
     total += item.price * item.qty;
@@ -523,3 +492,29 @@ function renderCart() {
 
 
 renderCart();
+
+
+function renderProducts() {
+  const productsContainer = document.getElementById("products-Container");
+
+  const html = products.map((product, index) => `
+    <div class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-img" src="${product.img}" alt="${product.title}" />
+        ${product.new ? '<div class="product-badge new-badge">New</div>' : '<div class="product-badge">Bestseller</div>'}
+      </div>
+      <div class="product-info">
+        <h3>${product.title}</h3>
+        <p class="product-desc">${product.description}</p>
+        <div class="product-footer">
+          <span class="product-price">${product.price} EGP</span>
+          <button class="btn-order" onclick="addToCart('${product.img}', '${product.title}', '${product.price}')">Order Now</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  productsContainer.innerHTML = html;
+}
+
+renderProducts();
