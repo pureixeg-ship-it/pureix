@@ -3,8 +3,7 @@ const tax = 0;
 
 let cart = [];
 let url = "https://pureix.netlify.app/";
-
-console.log(url)
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbx5TaoMMBiMwaOw8Yr-UGFrqvcJ0hDOJsUcdxRr3Hw3RsMPYz8Oes670jTyTdzvrBgsgQ/exec"; // ← paste your URL here
 
 let products = [
   {
@@ -297,6 +296,25 @@ orderForm.addEventListener("submit", async (e) => {
       EMAILJS_TEMPLATE_ID,
       templateParams
     );
+
+    // 2. Log order to Google Sheets
+    await fetch(SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from_name: templateParams.from_name,
+        email:     templateParams.email,
+        phone:     templateParams.phone,
+        address:   templateParams.address,
+        products:  templateParams.products,        // full cart array
+        shipping:  templateParams.cost.shipping,
+        total:     templateParams.cost.total,
+        notes:     templateParams.notes
+      })
+    });
+
+
     setLoading(false);
     showSuccess();
   } catch (err) {
