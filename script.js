@@ -2,10 +2,13 @@ const shipping = 60;
 const tax = 0;
 
 let cart = [];
+let url = "https://pureix.netlify.app/";
+
+console.log(url)
 
 let products = [
   {
-    img: "./images/glycerin-soap.png",
+    img: "https://pureix.netlify.app/images/glycerin-soap.png",
     title: "Glycerin Soap",
     description: "Hydrate and glow with our gentle glycerin soap, formulated with natural ingredients to cleanse your skin without dryness. It locks in moisture, keeping your skin soft, smooth, and beautifully radiant. Perfect for everyday use and suitable for all skin types.",
     bestSeller: true,
@@ -13,7 +16,7 @@ let products = [
     price: 180,
   },
   {
-    img: "./images/glycerin-soap-with-charcoal-oatmeal.png",
+    img: "https://pureix.netlify.app/images/glycerin-soap-with-charcoal-oatmeal.png",
     title: "Glycerin Soap with Charcoal & Oatmeal",
     description: "Purify and refresh your skin with this powerful blend of activated charcoal and natural oatmeal. Designed to deeply cleanse pores, control excess oil, and gently exfoliate without irritation—leaving your skin smooth, clear, and perfectly balanced. Ideal for oily and combination skin.",
     bestSeller: false,
@@ -57,9 +60,9 @@ let products = [
 
    Then replace the placeholder values below:
    ==================================================== */
-const EMAILJS_SERVICE_ID = "service_vpdrgei";   // e.g. "service_abc123"
-const EMAILJS_TEMPLATE_ID = "template_eim0zam";  // e.g. "template_xyz789"
-const EMAILJS_PUBLIC_KEY = "xdf-rjS7s99egx3Ar";   // e.g. "aBcDeFgHiJkLmNoP"
+const EMAILJS_SERVICE_ID = "service_9jpfr0l";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "template_6183408";  // e.g. "template_xyz789"
+const EMAILJS_PUBLIC_KEY = "t1RCDrEBbOGH6sNU9";   // e.g. "aBcDeFgHiJkLmNoP"
 
 // Your receiving email — matches the {{to_email}} variable in your template
 const STORE_EMAIL = "shaimaassad6@email.com";
@@ -270,6 +273,8 @@ orderForm.addEventListener("submit", async (e) => {
   // Loading state
   setLoading(true);
 
+  let totalPrice = Number(document.getElementById("total").textContent) + shipping + tax;
+
   // Build template parameters for EmailJS
   const templateParams = {
     from_name: document.getElementById("f-name").value.trim(),
@@ -277,9 +282,9 @@ orderForm.addEventListener("submit", async (e) => {
     phone: document.getElementById("f-phone").value.trim(),
     address: document.getElementById("f-address").value.trim(),
     cost: {
-      shipping: 60,
+      shipping: shipping,
       tax: 0,
-      total: document.getElementById("total").textContent + shipping + tax,
+      total: totalPrice,
     },
     products: cart,
     notes: document.getElementById("f-notes").value.trim() || "",
