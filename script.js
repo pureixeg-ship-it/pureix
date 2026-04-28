@@ -281,7 +281,7 @@ orderForm.addEventListener("submit", async (e) => {
     cost: {
       shipping: shipping,
       tax: 0,
-      total: totalPrNumber(document.getElementById("total").textContent),
+      total: Number(document.getElementById("total").textContent),
     },
     products: cart,
     notes: document.getElementById("f-notes").value.trim() || "",
