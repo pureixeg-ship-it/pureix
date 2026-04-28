@@ -272,8 +272,6 @@ orderForm.addEventListener("submit", async (e) => {
   // Loading state
   setLoading(true);
 
-  let totalPrice = Number(document.getElementById("total").textContent) + shipping + tax;
-
   // Build template parameters for EmailJS
   const templateParams = {
     from_name: document.getElementById("f-name").value.trim(),
@@ -283,7 +281,7 @@ orderForm.addEventListener("submit", async (e) => {
     cost: {
       shipping: shipping,
       tax: 0,
-      total: totalPrice,
+      total: totalPrNumber(document.getElementById("total").textContent),
     },
     products: cart,
     notes: document.getElementById("f-notes").value.trim() || "",
