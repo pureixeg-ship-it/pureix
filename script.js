@@ -12,7 +12,7 @@ let products = [
     description: "Hydrate and glow with our gentle glycerin soap, formulated with natural ingredients to cleanse your skin without dryness. It locks in moisture, keeping your skin soft, smooth, and beautifully radiant. Perfect for everyday use and suitable for all skin types.",
     bestSeller: true,
     new: true,
-    price: 180,
+    price: 250,
   },
   {
     img: "https://pureix.netlify.app/images/glycerin-soap-with-charcoal-oatmeal.png",
