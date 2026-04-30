@@ -5,6 +5,7 @@
 
 /* ---- CSS Custom Properties ---- */
 :root {
+  --green:        #144d25;
   --cream:        #faf6f0;
   --cream-dark:   #f2e8d8;
   --sage:         #7a9e72;
@@ -13,9 +14,9 @@
   --gold:         #c8a060;
   --lavender:     #9090c8;
   --brown:        #6b4c30;
-  --text-dark:    #3a2e24;
-  --text-mid:     #6b5a48;
-  --text-light:   #a09080;
+  --text-dark:    #103e1e;
+  --text-mid:     #144d25;
+  --text-light:   #437151;
   --white:        #ffffff;
   --shadow:       0 8px 40px rgba(60,40,20,.10);
   --shadow-card:  0 4px 28px rgba(60,40,20,.08);
@@ -49,7 +50,7 @@ h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 400; }
 h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 400; }
 h3 { font-size: 1.25rem; font-weight: 600; }
 h4 { font-size: 1rem; font-weight: 600; }
-em { font-style: italic; color: var(--brown); }
+em { font-style: italic; color: var(--green); }
 p  { color: var(--text-mid); font-weight: 300; }
 
 /* ---- Container ---- */
@@ -118,7 +119,7 @@ p  { color: var(--text-mid); font-weight: 300; }
 }
 .nav-links a:hover { color: var(--sage); }
 .btn-nav {
-  background: var(--brown) !important;
+  background: var(--green) !important;
   color: var(--white) !important;
   padding: 10px 22px;
   border-radius: 50px;
@@ -238,7 +239,7 @@ p  { color: var(--text-mid); font-weight: 300; }
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
   display: inline-block;
-  background: var(--brown);
+  background: var(--green);
   color: var(--white);
   padding: 16px 38px;
   border-radius: 50px;
@@ -255,8 +256,8 @@ p  { color: var(--text-mid); font-weight: 300; }
 }
 .btn-ghost {
   display: inline-block;
-  border: 2px solid var(--brown);
-  color: var(--brown);
+  border: 2px solid var(--green);
+  color: var(--green);
   padding: 14px 36px;
   border-radius: 50px;
   font-size: .9rem;
@@ -265,7 +266,7 @@ p  { color: var(--text-mid); font-weight: 300; }
   transition: all var(--transition);
 }
 .btn-ghost:hover {
-  background: var(--brown);
+  background: var(--green);
   color: var(--white);
   transform: translateY(-2px);
 }
@@ -351,7 +352,7 @@ p  { color: var(--text-mid); font-weight: 300; }
 .product-svg { width: 100%; display: block; }
 .product-badge {
   position: absolute; top: 14px; left: 14px;
-  background: var(--brown); color: var(--white);
+  background: var(--green); color: var(--white);
   font-size: .72rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
   padding: 4px 12px; border-radius: 50px;
@@ -371,12 +372,12 @@ p  { color: var(--text-mid); font-weight: 300; }
 .product-price {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
-  color: var(--brown);
+  color: var(--green);
   font-weight: 600;
 }
 .btn-order {
   background: var(--cream-dark);
-  color: var(--brown);
+  color: var(--green);
   border: none;
   padding: 10px 20px;
   border-radius: 50px;
@@ -387,14 +388,14 @@ p  { color: var(--text-mid); font-weight: 300; }
   transition: background var(--transition), color var(--transition), transform var(--transition);
 }
 .btn-order:hover {
-  background: var(--brown);
+  background: var(--green);
   color: var(--white);
   transform: translateY(-1px);
 }
 
 .btn-remove {
   background: transparent;
-  color: var(--brown);
+  color: var(--green);
   border: none;
   padding: 10px 20px;
   border-radius: 50px;
@@ -436,7 +437,7 @@ p  { color: var(--text-mid); font-weight: 300; }
 .about-badge {
   position: absolute;
   bottom: -18px; right: -18px;
-  background: var(--brown);
+  background: var(--green);
   color: var(--white);
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -458,7 +459,7 @@ p  { color: var(--text-mid); font-weight: 300; }
 .stat-num {
   font-family: 'Playfair Display', serif;
   font-size: 1.9rem;
-  color: var(--brown);
+  color: var(--green);
   font-weight: 600;
   line-height: 1;
 }
@@ -499,6 +500,7 @@ p  { color: var(--text-mid); font-weight: 300; }
   
 }
 .form-row-4 {
+
   display: grid;
   grid-template-columns: auto 1fr 1fr auto;
   gap: 24px;
@@ -563,7 +565,7 @@ p  { color: var(--text-mid); font-weight: 300; }
   width: 100%;
   margin-top: 10px;
   padding: 18px 24px;
-  background: var(--brown);
+  background: var(--green);
   color: var(--white);
   border: none;
   border-radius: 50px;

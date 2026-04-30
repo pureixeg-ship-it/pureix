@@ -22,6 +22,14 @@ let products = [
     new: true,
     price: 200,
   },
+    {
+    img: "https://pureix.netlify.app/images/olive-oil-and-oat-soap.png",
+    title: "Olive Oil and Oat Soap",
+    description: "A formula rich in nourishing olive oil that gives the skin deep hydration and softness, with natural oats that provide gentle exfoliation, soothe sensitive skin, and gently remove dead cells. An ideal choice in your daily care routine.",
+    bestSeller: false,
+    new: true,
+    price: 200,
+  },
 ]
 
 
